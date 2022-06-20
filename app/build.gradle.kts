@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -26,6 +28,10 @@ android {
         }
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -47,4 +53,11 @@ dependencies {
     testImplementation (Dependencies.junit)
     androidTestImplementation (Dependencies.testjunit)
     androidTestImplementation (Dependencies.espressoCore)
+
+    // Hilt
+    implementation (Dependencies.hiltAndroid)
+    kapt (Dependencies.hiltAndroidCompiler)
+
+    // Coroutines
+    implementation (Dependencies.workRuntime)
 }

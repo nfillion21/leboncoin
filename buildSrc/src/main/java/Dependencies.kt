@@ -11,4 +11,11 @@ object Dependencies {
     val junit by lazy {"junit:junit:${Versions.junit}"}
     val testjunit by lazy {"androidx.test.ext:junit:${Versions.testjunit}"}
     val espressoCore by lazy {"androidx.test.espresso:espresso-core:${Versions.espressoCore}"}
+
+    // Hilt
+    val hiltAndroid by lazy { "com.google.dagger:hilt-android:${Versions.hilt}" }
+    val hiltAndroidCompiler by lazy { "com.google.dagger:hilt-android-compiler:${Versions.hilt}" }
+
+    // Coroutine
+    val workRuntime by lazy { "androidx.work:work-runtime-ktx:${Versions.workRuntime}" }
 }
