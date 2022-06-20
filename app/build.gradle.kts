@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = ConfigData.compileSdkVersion
 
     defaultConfig {
         applicationId = "pgm.poolp.leboncoin"
-        minSdk = 24
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = ConfigData.minSdkVersion
+        targetSdk = ConfigData.targetSdkVersion
+        versionCode = ConfigData.versionCode
+        versionName = ConfigData.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -40,11 +40,11 @@ android {
 
 dependencies {
 
-    implementation ("androidx.core:core-ktx:1.7.0")
-    implementation ("androidx.appcompat:appcompat:1.4.2")
-    implementation ("com.google.android.material:material:1.6.1")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
+    implementation (Dependencies.coreAndroidX)
+    implementation (Dependencies.appCompat)
+    implementation (Dependencies.material)
+    implementation (Dependencies.constraintLayout)
+    testImplementation (Dependencies.junit)
+    androidTestImplementation (Dependencies.testjunit)
+    androidTestImplementation (Dependencies.espressoCore)
 }
