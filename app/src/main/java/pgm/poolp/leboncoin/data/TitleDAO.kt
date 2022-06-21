@@ -8,7 +8,7 @@ interface TitleDao {
 
     // The flow always holds/caches latest version of data. Notifies its observers when the
     // data has changed.
-    @Query("select * from title order by titleId")
+    @Query("select * from title order by id")
     fun getTitles(): Flow<List<Title>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -17,7 +17,7 @@ interface TitleDao {
     @Query("delete from title")
     suspend fun deleteAll()
 
-    @Query("select * from title where titleId = :titleId")
+    @Query("select * from title where id = :titleId")
     fun getTitle(titleId: Int): Flow<Title>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

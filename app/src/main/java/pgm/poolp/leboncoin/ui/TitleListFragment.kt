@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import pgm.poolp.leboncoin.adapters.TitleListAdapter
+import pgm.poolp.leboncoin.databinding.FragmentTitlesBinding
 import pgm.poolp.leboncoin.viewmodels.TitleViewModel
-import pgm.poolp.ugdata.adapters.ChampionListAdapter
-import pgm.poolp.ugdata.databinding.FragmentChampionsBinding
-import pgm.poolp.ugdata.viewmodels.ChampionViewModel
 
 @AndroidEntryPoint
 class TitleListFragment : Fragment() {
@@ -22,19 +21,18 @@ class TitleListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentChampionsBinding.inflate(inflater, container, false)
+        val binding = FragmentTitlesBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
-        val adapter = ChampionListAdapter()
+        val adapter = TitleListAdapter()
         binding.championsList.adapter = adapter
         subscribeUi(adapter)
 
-        //setHasOptionsMenu(true)
         return binding.root
     }
 
-    private fun subscribeUi(adapter: ChampionListAdapter) {
-        championViewModel.allChampions.observe(viewLifecycleOwner) { champions ->
+    private fun subscribeUi(adapter: TitleListAdapter) {
+        titleViewModel.allTitles.observe(viewLifecycleOwner) { champions ->
             adapter.submitList(champions)
         }
     }
