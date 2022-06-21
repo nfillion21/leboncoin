@@ -8,6 +8,10 @@ plugins {
 android {
     compileSdk = ConfigData.compileSdkVersion
 
+    buildFeatures {
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId = "pgm.poolp.leboncoin"
         minSdk = ConfigData.minSdkVersion
@@ -54,10 +58,30 @@ dependencies {
     androidTestImplementation (Dependencies.testjunit)
     androidTestImplementation (Dependencies.espressoCore)
 
+    // Lifecycle
+    implementation (Dependencies.liveData)
+    implementation (Dependencies.viewModel)
+
     // Hilt
     implementation (Dependencies.hiltAndroid)
     kapt (Dependencies.hiltAndroidCompiler)
 
     // Coroutines
     implementation (Dependencies.workRuntime)
+
+    // Room
+    implementation (Dependencies.roomRuntine)
+    implementation (Dependencies.roomKtx)
+    annotationProcessor (Dependencies.roomCompiler)
+    kapt(Dependencies.roomCompiler)
+
+    // GSon
+    implementation (Dependencies.gson)
+
+    // Navigation
+    implementation (Dependencies.navFragment)
+
+    // Glide
+    kapt (Dependencies.glideCompiler)
+    implementation (Dependencies.glide)
 }

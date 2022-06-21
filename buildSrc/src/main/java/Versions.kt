@@ -8,4 +8,10 @@ object Versions {
     const val espressoCore = "3.4.0"
     const val hilt = "2.38.1"
     const val workRuntime = "2.4.0"
+    const val room = "2.4.1"
+    const val gson = "2.8.2"
+    const val lifecycle = "2.3.1"
+    const val navFragment = "2.3.3"
+    const val glide = "4.10.0"
+
 }
