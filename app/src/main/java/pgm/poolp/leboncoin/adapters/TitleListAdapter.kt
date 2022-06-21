@@ -27,13 +27,6 @@ class TitleListAdapter : ListAdapter<Title, RecyclerView.ViewHolder>(TitleDiffCa
     class ChampionViewHolder(
         private val binding: ListItemTitleBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.setClickListener {
-                binding.title?.let { title ->
-                    //navigateToChampion(champion, it)
-                }
-            }
-        }
 
         fun bind(item: Title) {
             binding.apply {

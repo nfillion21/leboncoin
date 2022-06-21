@@ -12,6 +12,6 @@ object Versions {
     const val gson = "2.8.2"
     const val lifecycle = "2.3.1"
     const val navFragment = "2.3.3"
-    const val glide = "4.10.0"
+    const val glide = "4.13.0"
 
 }
