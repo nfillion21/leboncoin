@@ -54,6 +54,7 @@ dependencies {
     implementation (Dependencies.appCompat)
     implementation (Dependencies.material)
     implementation (Dependencies.constraintLayout)
+    implementation (Dependencies.swipeRefresh)
     testImplementation (Dependencies.junit)
     androidTestImplementation (Dependencies.testjunit)
     androidTestImplementation (Dependencies.espressoCore)

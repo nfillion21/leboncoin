@@ -9,8 +9,9 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import pgm.poolp.leboncoin.utilities.DATABASE_NAME
+import pgm.poolp.leboncoin.utilities.TITLE_LIST_URL
 import pgm.poolp.leboncoin.workers.TitleDatabaseWorker
-import pgm.poolp.leboncoin.workers.TitleDatabaseWorker.Companion.TITLE_LIST_URL
+import pgm.poolp.leboncoin.workers.TitleDatabaseWorker.Companion.TITLES_KEY_URL
 
 /**
  * This is the backend. The database. This used to be done by the OpenHelper.
@@ -54,7 +55,7 @@ abstract class LeboncoinRoomDatabase : RoomDatabase() {
                 val workManager = WorkManager.getInstance(context)
 
                 val requestChampions = OneTimeWorkRequestBuilder<TitleDatabaseWorker>()
-                    .setInputData(workDataOf(TITLE_LIST_URL to TITLE_LIST_URL))
+                    .setInputData(workDataOf(TITLES_KEY_URL to TITLE_LIST_URL))
                     .build()
                 workManager.enqueue(requestChampions)
             }

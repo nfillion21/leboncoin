@@ -24,7 +24,7 @@ class TitleDatabaseWorker(
         try {
 
             val client = HttpClient(Android)
-            val url = inputData.getString(TITLE_LIST_URL)
+            val url = inputData.getString(TITLES_KEY_URL)
             val result: HttpResponse = client.get(url!!)
 
             if (result.status == HttpStatusCode.OK)
@@ -47,6 +47,6 @@ class TitleDatabaseWorker(
 
     companion object {
         private const val TAG = "TitleDatabaseWorker"
-        const val TITLE_LIST_URL = "TITLE_LIST_URL"
+        const val TITLES_KEY_URL = "TITLES_KEY_URL"
     }
 }

@@ -35,7 +35,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
+            <TextView
+                android:id="@+id/title_item_image_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:layout_marginStart="@dimen/margin_extra_small"
+                android:text="@{Integer.toString(title.id)}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="@id/title_item_image"
+                app:layout_constraintTop_toTopOf="@id/title_item_image"
+                tools:text="Tomato"/>
             <TextView
                 android:id="@+id/title_item_title"
                 android:layout_width="0dp"

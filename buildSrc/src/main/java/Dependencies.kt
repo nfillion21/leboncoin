@@ -11,6 +11,7 @@ object Dependencies {
     val junit by lazy {"junit:junit:${Versions.junit}"}
     val testjunit by lazy {"androidx.test.ext:junit:${Versions.testjunit}"}
     val espressoCore by lazy {"androidx.test.espresso:espresso-core:${Versions.espressoCore}"}
+    val swipeRefresh by lazy {"androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"}
 
     // Lifecycle components
     val liveData by lazy {"androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"}

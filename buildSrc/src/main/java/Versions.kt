@@ -6,6 +6,7 @@ object Versions {
     const val junit = "4.13.2"
     const val testjunit = "1.1.3"
     const val espressoCore = "3.4.0"
+    const val swipeRefresh = "1.1.0"
     const val hilt = "2.38.1"
     const val workRuntime = "2.7.1"
     const val room = "2.4.1"
