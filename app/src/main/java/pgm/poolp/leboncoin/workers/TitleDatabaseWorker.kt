@@ -6,7 +6,11 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
+import io.ktor.client.*
+import io.ktor.client.engine.android.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import pgm.poolp.leboncoin.data.LeboncoinRoomDatabase
@@ -18,21 +22,21 @@ class TitleDatabaseWorker(
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
         try {
-            val filename = inputData.getString(TITLE_KEY_FILENAME)
-            if (filename != null) {
-                applicationContext.assets.open(filename).use { inputStream ->
-                    JsonReader(inputStream.reader()).use { jsonReader ->
-                        val titleType = object : TypeToken<List<Title>>() {}.type
-                        val titleList: List<Title> = Gson().fromJson(jsonReader, titleType)
 
-                        val database = LeboncoinRoomDatabase.getInstance(applicationContext)
-                        database.titleDao().insertAll(titleList)
+            val client = HttpClient(Android)
+            val url = inputData.getString(TITLE_LIST_URL)
+            val result: HttpResponse = client.get(url!!)
 
-                        Result.success()
-                    }
-                }
+            if (result.status == HttpStatusCode.OK)
+            {
+                val titleType = object : TypeToken<List<Title>>() {}.type
+                val titleList: List<Title> = Gson().fromJson(result.readText(), titleType)
+                val database = LeboncoinRoomDatabase.getInstance(applicationContext)
+                database.titleDao().insertAll(titleList)
+
+                Result.success()
             } else {
-                Log.e(TAG, "Error seeding database - no valid filename")
+                Log.e(TAG, "Error seeding database - no valid url")
                 Result.failure()
             }
         } catch (ex: Exception) {
@@ -43,6 +47,6 @@ class TitleDatabaseWorker(
 
     companion object {
         private const val TAG = "TitleDatabaseWorker"
-        const val TITLE_KEY_FILENAME = "TITLE_DATA_FILENAME"
+        const val TITLE_LIST_URL = "TITLE_LIST_URL"
     }
 }

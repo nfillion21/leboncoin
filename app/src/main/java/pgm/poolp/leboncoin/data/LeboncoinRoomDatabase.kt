@@ -9,9 +9,8 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import pgm.poolp.leboncoin.utilities.DATABASE_NAME
-import pgm.poolp.leboncoin.utilities.TITLE_DATA_FILENAME
 import pgm.poolp.leboncoin.workers.TitleDatabaseWorker
-import pgm.poolp.leboncoin.workers.TitleDatabaseWorker.Companion.TITLE_KEY_FILENAME
+import pgm.poolp.leboncoin.workers.TitleDatabaseWorker.Companion.TITLE_LIST_URL
 
 /**
  * This is the backend. The database. This used to be done by the OpenHelper.
@@ -39,9 +38,6 @@ abstract class LeboncoinRoomDatabase : RoomDatabase() {
                 LeboncoinRoomDatabase::class.java,
                 DATABASE_NAME
             )
-                // Wipes and rebuilds instead of migrating if no Migration object.
-                // Migration is not part of this codelab.
-                //.fallbackToDestructiveMigration()
                 .addCallback(ChampionDatabaseCallback(context))
                 .build()
         }
@@ -58,7 +54,7 @@ abstract class LeboncoinRoomDatabase : RoomDatabase() {
                 val workManager = WorkManager.getInstance(context)
 
                 val requestChampions = OneTimeWorkRequestBuilder<TitleDatabaseWorker>()
-                    .setInputData(workDataOf(TITLE_KEY_FILENAME to TITLE_DATA_FILENAME))
+                    .setInputData(workDataOf(TITLE_LIST_URL to TITLE_LIST_URL))
                     .build()
                 workManager.enqueue(requestChampions)
             }

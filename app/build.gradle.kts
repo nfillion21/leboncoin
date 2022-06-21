@@ -84,4 +84,8 @@ dependencies {
     // Glide
     kapt (Dependencies.glideCompiler)
     implementation (Dependencies.glide)
+
+    // ktor
+    implementation (Dependencies.ktor)
+    implementation (Dependencies.ktorCIO)
 }

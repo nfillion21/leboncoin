@@ -13,5 +13,6 @@ object Versions {
     const val lifecycle = "2.3.1"
     const val navFragment = "2.3.3"
     const val glide = "4.13.0"
+    const val ktor = "1.5.0"
 
 }

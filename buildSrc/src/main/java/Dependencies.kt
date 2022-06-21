@@ -37,4 +37,8 @@ object Dependencies {
     // Glide
     val glideCompiler by lazy {"com.github.bumptech.glide:compiler:${Versions.glide}"}
     val glide by lazy {"com.github.bumptech.glide:glide:${Versions.glide}"}
+
+    // ktor
+    val ktor by lazy {"io.ktor:ktor-client-android:${Versions.ktor}"}
+    val ktorCIO by lazy {"io.ktor:ktor-client-cio:${Versions.ktor}"}
 }
