@@ -15,7 +15,8 @@ object Dependencies {
     val testjunit by lazy {"androidx.test.ext:junit:${Versions.testjunit}"}
     val espressoCore by lazy {"androidx.test.espresso:espresso-core:${Versions.espressoCore}"}
     val coreTesting by lazy {"androidx.arch.core:core-testing:${Versions.coreTesting}"}
-    val truth by lazy {"com.google.truth:truth:${Versions.truth}"}
+    val hiltTesting by lazy {"com.google.dagger:hilt-android-testing:${Versions.hilt}"}
+    val workTesting by lazy {"androidx.work:work-testing:${Versions.workRuntime}"}
 
     // Lifecycle components
     val liveData by lazy {"androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"}

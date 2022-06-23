@@ -11,7 +11,7 @@ import pgm.poolp.leboncoin.databinding.ListItemTitleBinding
 class TitleListAdapter : ListAdapter<Title, RecyclerView.ViewHolder>(TitleDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ChampionViewHolder(
+        return TitleViewHolder(
             ListItemTitleBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -21,10 +21,10 @@ class TitleListAdapter : ListAdapter<Title, RecyclerView.ViewHolder>(TitleDiffCa
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val champion = getItem(position)
-        (holder as ChampionViewHolder).bind(champion)
+        val title = getItem(position)
+        (holder as TitleViewHolder).bind(title)
     }
-    class ChampionViewHolder(
+    class TitleViewHolder(
         private val binding: ListItemTitleBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 

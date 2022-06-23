@@ -27,8 +27,7 @@ class TitleDatabaseWorker(
             val url = inputData.getString(TITLES_KEY_URL)
             val result: HttpResponse = client.get(url!!)
 
-            if (result.status == HttpStatusCode.OK)
-            {
+            if (result.status == HttpStatusCode.OK) {
                 val titleType = object : TypeToken<List<Title>>() {}.type
                 val titleList: List<Title> = Gson().fromJson(result.readText(), titleType)
                 val database = LeboncoinRoomDatabase.getInstance(applicationContext)

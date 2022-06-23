@@ -61,7 +61,8 @@ dependencies {
     androidTestImplementation (Dependencies.testjunit)
     androidTestImplementation (Dependencies.espressoCore)
     androidTestImplementation (Dependencies.coreTesting)
-    androidTestImplementation (Dependencies.truth)
+    androidTestImplementation (Dependencies.hiltTesting)
+    androidTestImplementation (Dependencies.workTesting)
 
     // Lifecycle
     implementation (Dependencies.liveData)

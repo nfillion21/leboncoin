@@ -41,9 +41,6 @@ class TitleDaoTest {
         thumbnailUrl = "https://via.placeholder.com/150/24f355"
     )
 
-    @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
-
     @Before
     fun createDb() = runBlocking {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
