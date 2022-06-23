@@ -55,9 +55,13 @@ dependencies {
     implementation (Dependencies.material)
     implementation (Dependencies.constraintLayout)
     implementation (Dependencies.swipeRefresh)
+
+    // Tests
     testImplementation (Dependencies.junit)
     androidTestImplementation (Dependencies.testjunit)
     androidTestImplementation (Dependencies.espressoCore)
+    androidTestImplementation (Dependencies.coreTesting)
+    androidTestImplementation (Dependencies.truth)
 
     // Lifecycle
     implementation (Dependencies.liveData)

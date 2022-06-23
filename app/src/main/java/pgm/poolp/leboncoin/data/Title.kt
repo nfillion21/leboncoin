@@ -10,4 +10,6 @@ data class Title(
     val title: String,
     val url: String,
     val thumbnailUrl: String
-)
+) {
+    override fun toString() = title
+}

@@ -11,15 +11,6 @@ interface TitleDao {
     @Query("select * from title order by id")
     fun getTitles(): Flow<List<Title>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(title: Title)
-
-    @Query("delete from title")
-    suspend fun deleteAll()
-
-    @Query("select * from title where id = :titleId")
-    fun getTitle(titleId: Int): Flow<Title>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(titles: List<Title>)
 }

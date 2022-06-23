@@ -8,5 +8,4 @@ import javax.inject.Singleton
 class TitleRepository @Inject constructor(private val titleDao: TitleDao) {
 
     val allTitles: Flow<List<Title>> = titleDao.getTitles()
-    fun getTitle(titleId: Int) = titleDao.getTitle(titleId)
 }

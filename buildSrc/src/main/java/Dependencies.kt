@@ -8,10 +8,14 @@ object Dependencies {
     val appCompat by lazy {"androidx.appcompat:appcompat:${Versions.appCompat}"}
     val material by lazy {"com.google.android.material:material:${Versions.material}"}
     val constraintLayout by lazy {"androidx.constraintlayout:constraintlayout:${Versions.contraintLayout}"}
+    val swipeRefresh by lazy {"androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"}
+
+    // Tests
     val junit by lazy {"junit:junit:${Versions.junit}"}
     val testjunit by lazy {"androidx.test.ext:junit:${Versions.testjunit}"}
     val espressoCore by lazy {"androidx.test.espresso:espresso-core:${Versions.espressoCore}"}
-    val swipeRefresh by lazy {"androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"}
+    val coreTesting by lazy {"androidx.arch.core:core-testing:${Versions.coreTesting}"}
+    val truth by lazy {"com.google.truth:truth:${Versions.truth}"}
 
     // Lifecycle components
     val liveData by lazy {"androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"}

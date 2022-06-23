@@ -15,5 +15,6 @@ object Versions {
     const val navFragment = "2.3.3"
     const val glide = "4.13.0"
     const val ktor = "1.5.0"
-
+    const val coreTesting = "2.0.0"
+    const val truth = "1.0.1"
 }
