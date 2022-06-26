@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Leboncoin</string>
+    <string name="a11y_title_item_image" translation_description="Accessibility text for each of the title images shown in the 'Titles' screen.">Picture of title</string>
 </resources>
