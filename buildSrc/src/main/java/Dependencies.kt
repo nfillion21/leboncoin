@@ -46,5 +46,4 @@ object Dependencies {
 
     // ktor
     val ktor by lazy {"io.ktor:ktor-client-android:${Versions.ktor}"}
-    val ktorCIO by lazy {"io.ktor:ktor-client-cio:${Versions.ktor}"}
 }

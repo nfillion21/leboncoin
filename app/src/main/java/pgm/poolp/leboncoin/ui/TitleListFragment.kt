@@ -38,10 +38,10 @@ class TitleListFragment : Fragment() {
             val swipeRefreshLayout = binding.swipeRefreshListLayout
             swipeRefreshLayout.setOnRefreshListener {
                 val workManager = WorkManager.getInstance(it)
-                val requestChampions = OneTimeWorkRequestBuilder<TitleDatabaseWorker>()
+                val requestTitles = OneTimeWorkRequestBuilder<TitleDatabaseWorker>()
                     .setInputData(workDataOf(TITLES_KEY_URL to TITLE_LIST_URL))
                     .build()
-                workManager.enqueue(requestChampions)
+                workManager.enqueue(requestTitles)
                 swipeRefreshLayout.isRefreshing = false
             }
         }
@@ -50,8 +50,8 @@ class TitleListFragment : Fragment() {
     }
 
     private fun subscribeUi(adapter: TitleListAdapter) {
-        titleViewModel.allTitles.observe(viewLifecycleOwner) { champions ->
-            adapter.submitList(champions)
+        titleViewModel.allTitles.observe(viewLifecycleOwner) { titles ->
+            adapter.submitList(titles)
         }
     }
 }

@@ -93,5 +93,4 @@ dependencies {
 
     // ktor
     implementation (Dependencies.ktor)
-    implementation (Dependencies.ktorCIO)
 }

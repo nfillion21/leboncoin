@@ -5,7 +5,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class TitleRepository @Inject constructor(private val titleDao: TitleDao) {
+class TitleRepository @Inject constructor(titleDao: TitleDao) {
 
     val allTitles: Flow<List<Title>> = titleDao.getTitles()
 }

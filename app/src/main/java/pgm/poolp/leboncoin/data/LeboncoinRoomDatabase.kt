@@ -13,10 +13,6 @@ import pgm.poolp.leboncoin.utilities.TITLE_LIST_URL
 import pgm.poolp.leboncoin.workers.TitleDatabaseWorker
 import pgm.poolp.leboncoin.workers.TitleDatabaseWorker.Companion.TITLES_KEY_URL
 
-/**
- * This is the backend. The database. This used to be done by the OpenHelper.
- * The fact that this has very few comments emphasizes its coolness.
- */
 @Database(entities = [Title::class], version = 1, exportSchema = false)
 abstract class LeboncoinRoomDatabase : RoomDatabase() {
 
@@ -39,25 +35,22 @@ abstract class LeboncoinRoomDatabase : RoomDatabase() {
                 LeboncoinRoomDatabase::class.java,
                 DATABASE_NAME
             )
-                .addCallback(ChampionDatabaseCallback(context))
+                .addCallback(TitleDatabaseCallback(context))
                 .build()
         }
 
-        private class ChampionDatabaseCallback(
+        private class TitleDatabaseCallback(
             private val context: Context
         ) : RoomDatabase.Callback() {
-            /**
-             * Override the onCreate method to populate the database.
-             */
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
 
                 val workManager = WorkManager.getInstance(context)
 
-                val requestChampions = OneTimeWorkRequestBuilder<TitleDatabaseWorker>()
+                val requestTitles = OneTimeWorkRequestBuilder<TitleDatabaseWorker>()
                     .setInputData(workDataOf(TITLES_KEY_URL to TITLE_LIST_URL))
                     .build()
-                workManager.enqueue(requestChampions)
+                workManager.enqueue(requestTitles)
             }
         }
     }
